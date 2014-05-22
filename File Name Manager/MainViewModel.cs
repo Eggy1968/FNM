@@ -186,6 +186,7 @@ namespace File_Name_Manager
         }
 
         // DECLARE Relay Commands
+        public RelayCommand SelectSourceFolder { get; set; }
         public RelayCommand SelectTargetFolder { get; set; }
         public RelayCommand ProcessMain { get; set; }
         public RelayCommand SaveSettings { get; set; }
@@ -193,6 +194,7 @@ namespace File_Name_Manager
         private void setupRelayCommands()
         {
             SelectTargetFolder = new RelayCommand((_) => selectTargetFolder());
+            SelectSourceFolder = new RelayCommand((_) => selectSourceFolder());
             ProcessMain = new RelayCommand((_) => processMain_Async());
             SaveSettings = new RelayCommand((_) => SaveUserSettings());
         }
@@ -238,6 +240,16 @@ namespace File_Name_Manager
         }
 
         private void selectTargetFolder()
+        {
+            OpenFileDialog dlg = new OpenFileDialog();
+            string selectedFolder = SelectFolder(Properties.Settings.Default.LastFolderUsed);
+
+            if (selectedFolder != "")
+            {
+                TargetFolder = selectedFolder;
+            }
+        }
+        private void selectSourceFolder()
         {
             OpenFileDialog dlg = new OpenFileDialog();
             string selectedFolder = SelectFolder(Properties.Settings.Default.LastFolderUsed);
