@@ -1,0 +1,137 @@
+﻿<UserControl x:Class="File_Name_Manager.Pages.Help"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mui="http://firstfloorsoftware.com/ModernUI"
+             xmlns:FNM="clr-namespace:File_Name_Manager" 
+             xmlns:Assets="clr-namespace:File_Name_Manager.Assets"
+             mc:Ignorable="d" 
+             d:DesignHeight="500" d:DesignWidth="500"
+             d:DataContext="{d:DesignInstance FNM:MainViewModel}"
+             
+>
+    <UserControl.Resources>
+        <FNM:InverseNullableBooleanConverter x:Key="InverseNullableBooleanConverter"/>
+        <FNM:InverseBooleanConverter x:Key="InverseBooleanConverter"/>
+        <mui:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+    </UserControl.Resources>
+    <Grid Background="AliceBlue">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70"/>
+            <RowDefinition/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" MinWidth="200" Margin="0,0,0,0">
+            <TextBlock Text="DATE FORMATTING HELP" Style="{StaticResource Heading2}" />
+            <TextBlock TextWrapping="Wrap"><Run Text="The following is a quick guide to formatting dates"/><Run Text="."/><Run Text=" &#xA; These codes are based on standard formatting codes, a link to a more detailed version is provided below."/></TextBlock>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Orientation="Vertical">
+            <RichTextBox IsReadOnly="True" BorderBrush="{x:Null}" Foreground="Black" SelectionBrush="{x:Null}" Background="{x:Null}">
+                <FlowDocument>
+                    <Paragraph FontSize="14.6666666666667" FontFamily="Calibri" Margin="0,0,0,13.33">
+                        <Span>
+                            <Run Text="Using an example date and time of "/>
+                        </Span>
+                        <Span FontWeight="Bold">
+                            <Run Text="Friday, 3rd August 2007 6:05:09"/>
+                        </Span>
+                    </Paragraph>
+                    <Paragraph FontSize="14.6666666666667" FontFamily="Calibri" Margin="0,0,0,13.33">
+                        <Span FontWeight="Bold">
+                            <Run Text="d"/>
+                        </Span>
+                        <Run Text="&#x9;day trimmed&#x9;&#x9;3"/>
+                        <Run FontWeight="Bold"/>
+                        <LineBreak/>
+                        <Run FontWeight="Bold" Text="dd"/>
+                        <Run Text="&#x9;day fixed 2 digit&#x9;&#x9;03"/>
+                        <Run FontWeight="Bold"/>
+                        <LineBreak/>
+                        <Run FontWeight="Bold" Text="ddd"/>
+                        <Run Text="&#x9;day name short&#x9;&#x9;Fri"/>
+                        <Run FontWeight="Bold"/>
+                        <LineBreak/>
+                        <Run FontWeight="Bold" Text="dddd"/>
+                        <Run Text="&#x9;day name long&#x9;&#x9;Friday"/>
+                        <Run FontWeight="Bold"/>
+                        <LineBreak/>
+                        <Run FontWeight="Bold" Text="M"/>
+                        <Run Text="&#x9;month trimmed&#x9;&#x9;8"/>
+                        <Run FontWeight="Bold"/>
+                        <LineBreak/>
+                        <Run FontWeight="Bold" Text="MM"/>
+                        <Run Text="&#x9;month fixed 2 digit&#x9;"/>
+                        <Run Text="&#x9;"/>
+                        <Run Text="08"/>
+                        <Run FontWeight="Bold"/>
+                        <LineBreak/>
+                        <Run FontWeight="Bold" Text="MMM"/>
+                        <Run Text="&#x9;month name short&#x9;"/>
+                        <Run Text="&#x9;"/>
+                        <Run Text="Aug"/>
+                        <Run FontWeight="Bold"/>
+                        <LineBreak/>
+                        <Run FontWeight="Bold" Text="MMMM"/>
+                        <Run Text="&#x9;month name long&#x9;"/>
+                        <Run Text="&#x9;"/>
+                        <Run Text="August"/>
+                        <Run FontWeight="Bold"/>
+                        <LineBreak/>
+                        <Run FontWeight="Bold" Text="y"/>
+                        <Run Text="&#x9;year trimmed&#x9;&#x9;7"/>
+                        <Run FontWeight="Bold"/>
+                        <LineBreak/>
+                        <Run FontWeight="Bold" Text="yy"/>
+                        <Run Text="&#x9;year 2 digit&#x9;&#x9;07"/>
+                        <Run FontWeight="Bold"/>
+                        <LineBreak/>
+                        <Run FontWeight="Bold" Text="yyyy"/>
+                        <Run Text="&#x9;year 4 digit&#x9;&#x9;2007"/>
+                        <Run FontWeight="Bold"/>
+                        <LineBreak/>
+                        <Run FontWeight="Bold" Text="h"/>
+                        <Run Text="&#x9;hour trimmed 12 hour clock&#x9;6"/>
+                        <Run FontWeight="Bold"/>
+                        <LineBreak/>
+                        <Run FontWeight="Bold" Text="hh"/>
+                        <Run Text="&#x9;hour 2 digit 12 hour clock&#x9;06"/>
+                        <Run FontWeight="Bold"/>
+                        <LineBreak/>
+                        <Run FontWeight="Bold" Text="H"/>
+                        <Run Text="&#x9;hour trimmed 24 hour clock&#x9;6"/>
+                        <Run FontWeight="Bold"/>
+                        <LineBreak/>
+                        <Run FontWeight="Bold" Text="HH"/>
+                        <Run Text="&#x9;hour 2 digit 24 hour clock&#x9;06"/>
+                        <Run FontWeight="Bold"/>
+                        <LineBreak/>
+                        <Run FontWeight="Bold" Text="m"/>
+                        <Run Text="&#x9;minutes trimmed&#x9;&#x9;5"/>
+                        <Run FontWeight="Bold"/>
+                        <LineBreak/>
+                        <Run FontWeight="Bold" Text="mm"/>
+                        <Run Text="&#x9;minuted 2 digit&#x9;&#x9;05"/>
+                        <Run FontWeight="Bold"/>
+                        <LineBreak/>
+                        <Run FontWeight="Bold" Text="s"/>
+                        <Run Text="&#x9;seconds trimmed&#x9;"/>
+                        <Run Text="&#x9;"/>
+                        <Run Text="9"/>
+                        <Run FontWeight="Bold"/>
+                        <LineBreak/>
+                        <Run FontWeight="Bold" Text="ss"/>
+                        <Run Text="&#x9;seconds 2 digit&#x9;&#x9;09"/>
+                    </Paragraph>
+                </FlowDocument>
+            </RichTextBox>
+        </StackPanel>
+        <TextBlock Grid.Row="2">
+            <Hyperlink NavigateUri="http://msdn.microsoft.com/en-us/library/8kb3ddd4.aspx" RequestNavigate="Hyperlink_RequestNavigate">
+                Click here for more information from the MSDN website.
+            </Hyperlink>
+        </TextBlock>
+    </Grid>
+
+</UserControl>

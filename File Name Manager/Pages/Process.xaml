@@ -1,0 +1,38 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mui="http://firstfloorsoftware.com/ModernUI"
+             xmlns:FNM="clr-namespace:File_Name_Manager" 
+             xmlns:Assets="clr-namespace:File_Name_Manager.Assets"
+             x:Class="File_Name_Manager.Pages.Process"
+             mc:Ignorable="d" 
+             d:DesignHeight="500" d:DesignWidth="500"
+             d:DataContext="{d:DesignInstance FNM:MainViewModel}"
+             >
+    <UserControl.Resources>
+        <mui:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+    </UserControl.Resources>
+    <!--<UserControl.DataContext>
+        <EDI:MainViewModel/>
+    </UserControl.DataContext>-->
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="75"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="40"/>
+            </Grid.RowDefinitions>
+            <StackPanel Grid.Row="0" Orientation="Vertical">
+                <TextBlock Text="PROCESS" Style="{StaticResource Heading2}" />
+                <TextBlock Text="{Binding FolderFileFoundMessage}"  />
+            </StackPanel>
+            <TextBox FNM:TextBoxAutoScrollBehaviour.ScrollOnTextChanged="True" VerticalScrollBarVisibility="Auto"  Grid.Row="1" TextWrapping="Wrap" Text="{Binding ProgressLog}" UndoLimit="0" IsReadOnly="True"/>
+            <StackPanel Orientation="Vertical" Grid.Row="2">
+                <mui:ModernButton Padding="5"  Content="Start" IsDefault="True" HorizontalAlignment="Center" Command="{Binding ProcessMain}" IsEnabled="{Binding Busy.NotValue}" IconData="F1M1188.2,1715.23L1169.93,1728.57 1151.66,1741.9 1151.66,1715.23 1151.66,1688.57 1169.93,1701.9 1188.2,1715.23z"/>
+                <Assets:ProgressBar IsEnabled="{Binding Busy.Value}" />
+                <ProgressBar Value="{Binding ProgressPercent}" Height="5"/>
+            </StackPanel>
+        </Grid>
+</UserControl>

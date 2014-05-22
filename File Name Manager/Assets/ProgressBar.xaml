@@ -1,0 +1,19 @@
+﻿<UserControl x:Class="File_Name_Manager.Assets.ProgressBar"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mui="http://firstfloorsoftware.com/ModernUI"
+             xmlns:ViewModel="clr-namespace:File_Name_Manager"
+             xmlns:Model="clr-namespace:File_Name_Manager"
+             mc:Ignorable="d"
+             d:DesignHeight="5" d:DesignWidth="500"
+>
+<UserControl.Resources>
+  <mui:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+</UserControl.Resources>
+  <ProgressBar Minimum="0" 
+               IsIndeterminate="True" 
+               Visibility="{ Binding Busy.Value, Converter={ StaticResource BooleanToVisibilityConverter } }" 
+               Maximum="1" />
+</UserControl>
